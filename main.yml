@@ -15,6 +15,11 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
+      - name: Prepare the app page
+        run: |
+          mkdir -p www
+          if [ ! -f www/index.html ]; then cp index.html www/index.html; fi
+          ls -la www
       - name: Install packages
         run: npm install
       - name: Create the Android project
